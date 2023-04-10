@@ -12,7 +12,7 @@ BASE_PROMPT = [{"role": "system", "content": "You are a helpful assistant."}]
 if "messages" not in st.session_state:
     st.session_state["messages"] = BASE_PROMPT
 
-st.subheader("ChatGPT @ IEG Growth Platform Data Science")
+st.subheader("ChatGPT @ SongliHuan 宋老师 ")
 
 openai.api_key = st.text_input("Paste your OpenAI API Key here", value="", type="password")
 prompt = st.text_input("Prompt", value="Enter your message here...")
