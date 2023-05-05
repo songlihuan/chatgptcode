@@ -5,7 +5,7 @@ def show_messages(text):
     messages_str = [
         f"{_['role']}: {_['content']}" for _ in st.session_state["messages"][1:]
     ]
-    text.text_area("Messages", value=str("\n\n".join(messages_str)), height=400)
+    text.text_area("回答", value=str("\n\n".join(messages_str)), height=400)
 
 BASE_PROMPT = [{"role": "system", "content": "You are a helpful assistant."}]
 
@@ -18,7 +18,7 @@ openai.api_key = st.text_input("黏贴你的OPEN AI Key", value="", type="passwo
 prompt = st.text_input("提问", value="请输入您的问题...")
 
 if st.button("发送"):
-    with st.spinner("Generating response..."):
+    with st.spinner("正在思考..."):
         st.session_state["messages"] += [{"role": "user", "content": prompt}]
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo", messages=st.session_state["messages"]
